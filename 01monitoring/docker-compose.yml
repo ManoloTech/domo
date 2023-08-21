@@ -22,15 +22,22 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   grafana:
-    image: grafana/grafana:7.3.7     
+    image: grafana/grafana:9.5.8   
     container_name: grafana
     ports:
       - "3000:3000"
     env_file:
       - 'env.grafana'
-    user: root
+    user: '0'
     volumes:
       - data_grafana:/var/lib/grafana
+    secrets:
+      - source: grafana_admin_password
+        target: /run/secrets/admin_password
+
+secrets:
+  grafana_admin_password:
+    file: ./grafana_admin_password
 
 volumes:
   data_influxdb:
