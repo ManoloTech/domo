@@ -5,7 +5,7 @@ services:
     image: influxdb:2.7.1
     container_name: influxdb
     ports:
-      - "9999:9999"
+      - "8086:8086"
     env_file:
       - 'env.influxdb'
     volumes:
