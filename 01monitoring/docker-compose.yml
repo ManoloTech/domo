@@ -9,7 +9,9 @@ services:
     env_file:
       - 'env.influxdb'
     volumes:
-      - data_influxdb:/var/lib/influxdb2 
+      - data_influxdb:/var/lib/influxdb2
+      - config_influxdb:/etc/influxdb2/
+    restart: unless-stopped
 
   telegraf:
     image: telegraf:1.27.3
@@ -21,6 +23,7 @@ services:
       - /:/hostfs:ro
       - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: unless-stopped
 
   grafana:
     image: grafana/grafana:9.5.8   
@@ -32,7 +35,9 @@ services:
     user: '0'
     volumes:
       - data_grafana:/var/lib/grafana
+    restart: unless-stopped
 
 volumes:
+  config_influxdb:
   data_influxdb:
   data_grafana:
