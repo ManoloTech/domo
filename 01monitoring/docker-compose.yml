@@ -5,7 +5,7 @@ services:
     image: influxdb:2.7.1
     container_name: influxdb
     ports:
-      - "8086:8086"
+      - "9999:9999"
     env_file:
       - 'env.influxdb'
     volumes:
@@ -31,13 +31,6 @@ services:
     user: '0'
     volumes:
       - data_grafana:/var/lib/grafana
-    secrets:
-      - source: grafana_admin_password
-        target: /run/secrets/admin_password
-
-secrets:
-  grafana_admin_password:
-    file: ./grafana_admin_password
 
 volumes:
   data_influxdb:
