@@ -29,9 +29,9 @@ services:
       - SSL_KEY_NAME=tls.key
       - TZ=Europe/Brussels
     volumes:
-      - omada-data:/opt/tplink/EAPController/data
-      - omada-logs:/opt/tplink/EAPController/logs
+      - data_omada:/opt/tplink/EAPController/data
+      - logs_omada:/opt/tplink/EAPController/logs
 
 volumes:
-  omada-data:
-  omada-logs:
+  data_omada:
+  logs_omada:
