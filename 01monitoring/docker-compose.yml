@@ -16,7 +16,7 @@ services:
   telegraf:
     image: telegraf:1.27.3
     container_name: telegraf
-    hostname: "{{.Node.Hostname}}"
+    hostname: '{{.Node.Hostname}}'
     user: telegraf:997
     env_file:
       - 'env.telegraf'
