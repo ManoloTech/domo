@@ -50,7 +50,7 @@ services:
       - config_homeassistant:/home/coder/project
     ports:
       - "8443:8443"
-    command: code-server --port 8443 --disable-telemetry /home/coder/project
+    command: code-server --auth none --port 8443 --disable-telemetry /home/coder/project
     restart: unless-stopped
 
 volumes:
