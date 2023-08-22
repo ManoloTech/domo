@@ -45,7 +45,7 @@ services:
 
   vscode:
     container_name: vscode
-    image: codercom/code-server:v2
+    image: codercom/code-server:4.16.1
     volumes:
       - config_homeassistant:/home/coder/project
     ports:
