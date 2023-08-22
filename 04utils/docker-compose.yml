@@ -16,4 +16,4 @@ services:
     restart: unless-stopped
 
 volumes:
-  data_heimdall:
+  config_heimdall:
