@@ -26,7 +26,24 @@ services:
       - 18083:18083 
     volumes:
        - data_emqx:/opt/emqx/data
+       - config_emqx:/opt/emqx/etc
+
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt:1.32.2
+    restart: unless-stopped
+    volumes:
+      - data_zigbee2mqtt:/app/data
+      - /run/udev:/run/udev:ro
+    ports:
+      - 8080:8080
+    environment:
+      - TZ=Europe/Berlin
+    devices:
+      - /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20221031090404-if00:/dev/ttyACM0
 
 volumes:
   config_homeassistant:
+  config_emqx:
   data_emqx:
+  data_zigbee2mqtt:
