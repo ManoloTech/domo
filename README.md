@@ -18,3 +18,15 @@ sudo apt-get update
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
+
+
+
+### Habilitar HACS
+
+```
+cd /var/lib/docker/volumes/02homeassistant_config_homeassistant/_data/
+wget -O - https://get.hacs.xyz | bash -
+```
+
+url: /hacsfiles/lovelace-mushroom/mushroom.js
+type: module
