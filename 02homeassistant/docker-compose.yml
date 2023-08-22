@@ -11,7 +11,7 @@ services:
     network_mode: host
 
   emqx:
-    image: emqx:5.1.5
+    image: emqx/emqx:5.1.5
     container_name: emqx
     healthcheck:
       test: ["CMD", "/opt/emqx/bin/emqx", "ctl", "status"]
