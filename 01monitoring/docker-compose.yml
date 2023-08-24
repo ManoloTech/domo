@@ -4,6 +4,7 @@ services:
   influxdb:
     image: influxdb:2.7.1
     container_name: influxdb
+    restart: unless-stopped
     ports:
       - "8086:8086"
     env_file:
@@ -11,11 +12,12 @@ services:
     volumes:
       - data_influxdb:/var/lib/influxdb2
       - config_influxdb:/etc/influxdb2/
-    restart: unless-stopped
+    
 
   telegraf:
     image: telegraf:1.27.3
     container_name: telegraf
+    restart: unless-stopped
     hostname: "domo-01"
     user: telegraf:997
     env_file:
@@ -24,11 +26,11 @@ services:
       - /:/hostfs:ro
       - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    restart: unless-stopped
 
   grafana:
     image: grafana/grafana:9.5.8   
     container_name: grafana
+    restart: unless-stopped
     ports:
       - "3000:3000"
     env_file:
@@ -36,7 +38,6 @@ services:
     user: '0'
     volumes:
       - data_grafana:/var/lib/grafana
-    restart: unless-stopped
 
 volumes:
   config_influxdb:

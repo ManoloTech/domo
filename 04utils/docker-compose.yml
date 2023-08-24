@@ -4,6 +4,7 @@ services:
   heimdall:
     image: lscr.io/linuxserver/heimdall:2.5.6
     container_name: heimdall
+    restart: unless-stopped
     environment:
       - PUID=1000
       - PGID=1000
@@ -13,7 +14,6 @@ services:
     ports:
       - 80:80
       - 443:443
-    restart: unless-stopped
 
 volumes:
   config_heimdall:

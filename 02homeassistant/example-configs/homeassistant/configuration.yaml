@@ -14,3 +14,18 @@ lovelace:
   resources:
     - url: /hacsfiles/lovelace-mushroom/mushroom.js
       type: module
+
+influxdb:
+  api_version: 2
+  ssl: false
+  host: localhost
+  port: 8086
+  token: 
+  organization: domotic
+  bucket: homeassistant
+  tags:
+    source: HA
+  tags_attributes:
+    - friendly_name
+    - device_class
+  default_measurement: units
