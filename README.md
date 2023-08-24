@@ -19,7 +19,13 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
+## Desplegar Monitoring
 
+## Desplegar HomeAssistant
+
+## Desplegar Omada
+
+## Desplegar Utils
 
 ### Habilitar HACS
 
@@ -28,5 +34,7 @@ cd /var/lib/docker/volumes/02homeassistant_config_homeassistant/_data/
 wget -O - https://get.hacs.xyz | bash -
 ```
 
-url: /hacsfiles/lovelace-mushroom/mushroom.js
-type: module
+### Grafana Dashboards
+
+* Docker: 17020
+* System: 15650

@@ -31,8 +31,8 @@ services:
        - log_emqx:/opt/emqx/log
 
   zigbee2mqtt:
-    container_name: zigbee2mqtt
     image: koenkk/zigbee2mqtt:1.32.2
+    container_name: zigbee2mqtt
     restart: unless-stopped
     volumes:
       - data_zigbee2mqtt:/app/data
@@ -45,8 +45,8 @@ services:
       - /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20221031090404-if00:/dev/ttyACM0
 
   vscode:
-    container_name: vscode
     image: codercom/code-server:4.16.1
+    container_name: vscode
     restart: unless-stopped
     volumes:
       - config_homeassistant:/home/coder/project
