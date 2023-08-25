@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "/opt/emqx/bin/emqx", "ctl", "status"]
-      interval: 5s
+      interval: 60s
       timeout: 25s
       retries: 5
     ports:
