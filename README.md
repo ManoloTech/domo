@@ -24,7 +24,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 * Copiar los archivos de example-configs a la raiz de 01monitoring
 * Editar env.influxdb y añadir las credenciales
 * Editar telegraf.conf y añadir las credenciales
-* ```sudo docker compose up -d``
+* ```sudo docker compose up -d```
 * Las credenciales de InfluxDB serán las que tenemos configuradas en el env.influxdb
 * Las credenciales de Grafana son admin:admin
 
