@@ -48,6 +48,7 @@ services:
     image: codercom/code-server:4.16.1
     container_name: vscode
     restart: unless-stopped
+    user: root
     volumes:
       - config_homeassistant:/home/coder/project
     ports:
