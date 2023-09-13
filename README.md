@@ -47,11 +47,11 @@ wget -O - https://get.hacs.xyz | bash -
 
 ## Desplegar Omada
 * Nos movemos a 03omada
-* ```sudo docker compose up -d``
+* ```sudo docker compose up -d```
 
 ## Desplegar Utils
 * Nos movemos a 04utils
-* ```sudo docker compose up -d``
+* ```sudo docker compose up -d```
 
 ### Grafana Dashboards
 * Docker: 17020
