@@ -30,11 +30,11 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 ## Desplegar HomeAssistant
 * Nos movemos a 02homeassistant
-* ```sudo docker compose up -d``
+* ```sudo docker compose up -d```
 * Añadir las credenciales a example-configs/homeassistant/configuration.yaml
 * Copiar example-configs/homeassistant/configuration.yaml al volumen creado con docker compose
 * Copiar example-configs/zigbe2mqtt/configuration.yaml al volumen creado con docker compose
-* Reiniciamos los servicios ```sudo docker compose restart``
+* Reiniciamos los servicios ```sudo docker compose restart```
 * Las credenciales de Home Assistant se configuran al acceder por primera vez
 * Las credenciales de EMQX son admin:public
 
