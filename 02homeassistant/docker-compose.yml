@@ -2,7 +2,7 @@ version: '3'
 services:
   homeassistant:
     container_name: homeassistant
-    image: "ghcr.io/home-assistant/home-assistant:2023.8"
+    image: "ghcr.io/home-assistant/home-assistant:2023.11"
     volumes:
       - config_homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
@@ -11,7 +11,7 @@ services:
     network_mode: host
 
   emqx:
-    image: emqx/emqx:5.1.5
+    image: emqx/emqx:5.3.0-elixir
     container_name: emqx
     restart: unless-stopped
     healthcheck:
@@ -31,7 +31,7 @@ services:
        - log_emqx:/opt/emqx/log
 
   zigbee2mqtt:
-    image: koenkk/zigbee2mqtt:1.32.2
+    image: koenkk/zigbee2mqtt:latest-dev
     container_name: zigbee2mqtt
     restart: unless-stopped
     volumes:
@@ -55,9 +55,25 @@ services:
       - "8443:8443"
     command: code-server --auth none --port 8443 --disable-telemetry /home/coder/project
 
+
+  esphome:
+    container_name: esphome
+    image: ghcr.io/esphome/esphome
+    volumes:
+      - config_esphome:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    privileged: true
+    network_mode: host
+    environment:
+      - USERNAME=test
+      - PASSWORD=ChangeMe
+      - ESPHOME_DASHBOARD_USE_PING=true
+
 volumes:
   config_homeassistant:
   config_emqx:
   data_emqx:
   log_emqx:
   data_zigbee2mqtt:
+  config_esphome:

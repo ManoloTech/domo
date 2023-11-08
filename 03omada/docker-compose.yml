@@ -1,7 +1,7 @@
 version: '3'
 services:
   omada-controller:
-    image: mbentley/omada-controller:5.9
+    image: mbentley/omada-controller:5.12
     container_name: omada-controller
     restart: unless-stopped
     ulimits:
