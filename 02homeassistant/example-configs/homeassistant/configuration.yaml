@@ -20,7 +20,7 @@ influxdb:
   ssl: false
   host: localhost
   port: 8086
-  token: 
+  token: "" 
   organization: domotic
   bucket: homeassistant
   tags:
