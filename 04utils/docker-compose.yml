@@ -12,8 +12,13 @@ services:
     volumes:
       - config_heimdall:/config
     ports:
-      - 80:80
-      - 443:443
+      - 88:80
+    networks:
+      - common
 
 volumes:
   config_heimdall:
+
+networks:
+  common:
+    name: common
