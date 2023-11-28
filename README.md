@@ -58,3 +58,23 @@ wget -O - https://get.hacs.xyz | bash -
 ### Grafana Dashboards
 * Docker: 17020
 * System: 15650
+Bootstrap CA
+Añade lo siguiente al provisioner:
+
+ "claims": {
+                                    "maxTLSCertDuration": "9480h",
+                                    "defaultTLSCertDuration": "9480h"
+                                }
+openssl x509 -noout -fingerprint -sha256 -inform pem -in root_ca.crt step ca bootstrap --ca-url https://ca.manolotech.com:9000 --fingerprint B098FFF65100BE77B888F16E22053F65ABBB882A73F8FAC25E60F4327B36FACD
+
+Alarmo
+https://github.com/nielsfaber/alarmo
+
+Mushroom
+https://github.com/piitaya/lovelace-mushroom
+
+Custom State: {{ states("sensor.sensor_temperatura_humedad_01_temperature") }}ºC
+
+Mini Graph Card
+https://github.com/kalkih/mini-graph-card
+
