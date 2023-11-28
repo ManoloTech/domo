@@ -12,7 +12,8 @@ services:
     volumes:
       - data_influxdb:/var/lib/influxdb2
       - config_influxdb:/etc/influxdb2/
-    
+    networks:
+      - common
 
   telegraf:
     image: telegraf:1.27.3
@@ -26,6 +27,8 @@ services:
       - /:/hostfs:ro
       - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - common
 
   grafana:
     image: grafana/grafana:9.5.8   
@@ -36,8 +39,14 @@ services:
     user: '0'
     volumes:
       - data_grafana:/var/lib/grafana
+    networks:
+      - common
 
 volumes:
   config_influxdb:
   data_influxdb:
   data_grafana:
+
+networks:
+  common:
+    name: common
