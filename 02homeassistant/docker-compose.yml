@@ -64,7 +64,6 @@ services:
     networks:
       - common
 
-
   esphome:
     container_name: esphome
     image: ghcr.io/esphome/esphome:2023.11.6
@@ -74,10 +73,8 @@ services:
     restart: always
     privileged: true
     network_mode: host
-    environment:
-      - USERNAME=test
-      - PASSWORD=ChangeMe
-      - ESPHOME_DASHBOARD_USE_PING=true
+    env_file:
+      - 'env.esphome' 
 
 volumes:
   config_homeassistant:
