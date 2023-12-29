@@ -31,7 +31,7 @@ services:
       - common
 
   grafana:
-    image: grafana/grafana:9.5.8   
+    image: grafana/grafana:10.2.2   
     container_name: grafana
     restart: unless-stopped
     ports:
